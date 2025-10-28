@@ -18,13 +18,13 @@ const Index = () => {
         id="inicio" 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(255, 107, 107, 0.75) 0%, rgba(255, 140, 66, 0.70) 50%, rgba(255, 209, 102, 0.65) 100%), url(${heroImage})`,
+          backgroundImage: `linear-gradient(135deg, rgba(255, 107, 107, 0.88) 0%, rgba(255, 140, 66, 0.85) 50%, rgba(255, 209, 102, 0.82) 100%), url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'multiply'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/20" />
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="animate-fade-in-up">
@@ -34,9 +34,30 @@ const Index = () => {
             <p className="text-2xl md:text-3xl text-primary-foreground/95 mb-4 font-medium">
               Artificial Business Intelligence for Real Growth
             </p>
-            <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto mb-6 leading-relaxed">
               Desarrollamos automatizaciones, soluciones IA y sistemas inteligentes que impulsan a las empresas hacia el futuro.
             </p>
+            
+            {/* Features Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8 mt-10">
+              <div className="bg-background/10 backdrop-blur-sm border border-primary-foreground/20 rounded-lg p-4">
+                <div className="text-3xl md:text-4xl font-display text-primary-foreground mb-2">100+</div>
+                <div className="text-sm text-primary-foreground/80">Automatizaciones</div>
+              </div>
+              <div className="bg-background/10 backdrop-blur-sm border border-primary-foreground/20 rounded-lg p-4">
+                <div className="text-3xl md:text-4xl font-display text-primary-foreground mb-2">50+</div>
+                <div className="text-sm text-primary-foreground/80">Clientes Activos</div>
+              </div>
+              <div className="bg-background/10 backdrop-blur-sm border border-primary-foreground/20 rounded-lg p-4">
+                <div className="text-3xl md:text-4xl font-display text-primary-foreground mb-2">24/7</div>
+                <div className="text-sm text-primary-foreground/80">Soporte IA</div>
+              </div>
+              <div className="bg-background/10 backdrop-blur-sm border border-primary-foreground/20 rounded-lg p-4">
+                <div className="text-3xl md:text-4xl font-display text-primary-foreground mb-2">∞</div>
+                <div className="text-sm text-primary-foreground/80">Posibilidades</div>
+              </div>
+            </div>
+
             <Button
               size="lg"
               onClick={() => scrollToSection('soluciones')}
@@ -158,7 +179,7 @@ const Index = () => {
       </section>
 
       {/* Academy Section */}
-      <section id="academy" className="py-20 md:py-32 gradient-warm">
+      <section id="academy" className="py-20 md:py-32 bg-card border-y border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="mb-6 flex justify-center">
