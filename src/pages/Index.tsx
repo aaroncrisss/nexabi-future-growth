@@ -18,7 +18,7 @@ const Index = () => {
         id="inicio" 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(255, 107, 107, 0.95) 0%, rgba(255, 140, 66, 0.90) 50%, rgba(255, 209, 102, 0.85) 100%), url(${heroImage})`,
+          backgroundImage: `linear-gradient(135deg, rgba(255, 107, 107, 0.75) 0%, rgba(255, 140, 66, 0.70) 50%, rgba(255, 209, 102, 0.65) 100%), url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'multiply'
@@ -72,7 +72,7 @@ const Index = () => {
               Creemos en soluciones simples, humanas y accesibles, donde la tecnología libera tiempo y potencia el talento de las personas.
             </p>
             <blockquote className="text-2xl md:text-3xl font-display text-gradient italic py-8">
-              "La inteligencia artificial con propósito humano."
+              "El crecimiento real comienza cuando automatizas con sentido"
             </blockquote>
           </div>
         </div>
