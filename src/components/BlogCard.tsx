@@ -1,13 +1,17 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface BlogCardProps {
   title: string;
   excerpt: string;
+  slug: string;
 }
 
-const BlogCard = ({ title, excerpt }: BlogCardProps) => {
+const BlogCard = ({ title, excerpt, slug }: BlogCardProps) => {
+  const navigate = useNavigate();
+  
   return (
     <Card className="shadow-card hover:shadow-glow transition-smooth border-border/50 h-full flex flex-col">
       <CardContent className="p-6 flex flex-col flex-grow">
@@ -17,7 +21,11 @@ const BlogCard = ({ title, excerpt }: BlogCardProps) => {
         <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
           {excerpt}
         </p>
-        <Button variant="ghost" className="w-full justify-between group">
+        <Button 
+          variant="ghost" 
+          className="w-full justify-between group"
+          onClick={() => navigate(`/blog/${slug}`)}
+        >
           Leer más
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-smooth" />
         </Button>

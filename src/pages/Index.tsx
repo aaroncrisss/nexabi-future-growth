@@ -335,14 +335,17 @@ const Index = () => {
             <BlogCard
               title="Por qué automatizar no es deshumanizar"
               excerpt="Descubre cómo la automatización bien aplicada libera tiempo para que las personas se enfoquen en lo que realmente importa."
+              slug="automatizar-no-es-deshumanizar"
             />
             <BlogCard
               title="5 formas en que la IA puede ayudar a tu negocio hoy"
               excerpt="Ideas prácticas y casos reales de cómo implementar inteligencia artificial sin ser experto en tecnología."
+              slug="cinco-formas-ia"
             />
             <BlogCard
               title="Cómo medir el impacto de la automatización"
               excerpt="Métricas clave y estrategias para evaluar el retorno de inversión de tus proyectos de IA y automatización."
+              slug="medir-impacto-automatizacion"
             />
           </div>
         </div>
