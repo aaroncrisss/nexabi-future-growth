@@ -92,7 +92,7 @@ const Index = () => {
               Descubre cómo podemos ayudarte
             </Button>
             <p className="text-primary-foreground/80 text-sm">
-              By Aarön Cris Tech
+              By Cris - Cristóbal Abarca
             </p>
           </div>
         </div>
@@ -114,7 +114,7 @@ const Index = () => {
               Tecnología con propósito
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              NEXABIS nació de la visión de Aarön Cris Tech: acercar la Inteligencia Artificial al mundo real de los negocios.
+              NEXABIS nació de la visión de Cristóbal Abarca (Cris): acercar la Inteligencia Artificial al mundo real de los negocios.
               <br /><br />
               Creemos en soluciones simples, humanas y accesibles, donde la tecnología libera tiempo y potencia el talento de las personas.
             </p>
@@ -220,7 +220,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto animate-fade-in-up">
             <ImpactCard
-              title="Iglesia IETQ"
+              title="Proyecto IETQ"
               description="Automatización completa del sistema de comunicación interna, mejorando la coordinación entre equipos y la experiencia de los miembros."
               metrics={[
                 { label: 'Productividad', value: '+30%', icon: TrendingUp },
@@ -279,7 +279,7 @@ const Index = () => {
               role="CEO, Startup Tech"
             />
             <TestimonialCard
-              quote="Aarön y su equipo entienden que la IA no es el fin, sino el medio para potenciar a las personas."
+              quote="Cris y su equipo entienden que la IA no es el fin, sino el medio para potenciar a las personas."
               author="María T."
               role="Gerente de Operaciones"
             />
@@ -387,7 +387,7 @@ const Index = () => {
               Cursos cortos, casos reales y acompañamiento humano.
             </p>
             <p className="text-sm text-muted-foreground/80 mb-8">
-              Llegará en Q2 2025
+              Llegará en Q3 2026
             </p>
             <Button
               size="lg"
@@ -516,7 +516,7 @@ const Index = () => {
               </div>
             </div>
             <p className="text-primary-foreground/60 text-xs mt-4 text-center">
-              Operamos desde Chile para toda Latinoamérica | Desarrollado por Aarön Cris Tech
+              Operamos desde Chile para toda Latinoamérica | Desarrollado por Cris - Cristóbal Abarca
             </p>
           </div>
         </div>
