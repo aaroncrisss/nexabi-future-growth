@@ -1,9 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, MessageCircle, BarChart3, Zap, Users, Bot } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const CincoFormasIA = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -12,11 +17,19 @@ const CincoFormasIA = () => {
         <div className="container mx-auto px-4 py-4">
           <Button
             variant="ghost"
-            onClick={() => navigate('/')}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                const blogSection = document.getElementById('insights');
+                if (blogSection) {
+                  blogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }, 100);
+            }}
             className="gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
-            Volver al inicio
+            Volver al Blog
           </Button>
         </div>
       </header>

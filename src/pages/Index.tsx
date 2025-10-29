@@ -27,7 +27,7 @@ const Index = () => {
           <div className="hidden md:flex gap-6 text-sm">
             <button onClick={() => scrollToSection('soluciones')} className="text-muted-foreground hover:text-foreground transition-smooth">Soluciones</button>
             <button onClick={() => scrollToSection('impacto')} className="text-muted-foreground hover:text-foreground transition-smooth">Impacto</button>
-            <button onClick={() => scrollToSection('insights')} className="text-muted-foreground hover:text-foreground transition-smooth">Insights</button>
+            <button onClick={() => scrollToSection('insights')} className="text-muted-foreground hover:text-foreground transition-smooth">Blog</button>
             <button onClick={() => scrollToSection('academy')} className="text-muted-foreground hover:text-foreground transition-smooth">Academy</button>
             <button onClick={() => scrollToSection('contacto')} className="text-muted-foreground hover:text-foreground transition-smooth">Contacto</button>
           </div>
@@ -207,7 +207,7 @@ const Index = () => {
       </section>
 
       {/* Impact / Success Stories Section */}
-      <section id="impacto" className="py-20 md:py-32 bg-muted/30">
+      <section id="impacto" className="py-20 md:py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -236,6 +236,38 @@ const Index = () => {
                 { label: 'Eficiencia', value: '2x', icon: Zap },
                 { label: 'ROI', value: '+150%', icon: Heart },
               ]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Blog / Insights Section */}
+      <section id="insights" className="py-20 md:py-32 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
+              Insights que impulsan el futuro
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Aprende cómo la IA y la automatización están transformando los negocios.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-fade-in-up">
+            <BlogCard
+              title="Por qué automatizar no es deshumanizar"
+              excerpt="Descubre cómo la automatización bien aplicada libera tiempo para que las personas se enfoquen en lo que realmente importa."
+              slug="automatizar-no-es-deshumanizar"
+            />
+            <BlogCard
+              title="5 formas en que la IA puede ayudar a tu negocio hoy"
+              excerpt="Ideas prácticas y casos reales de cómo implementar inteligencia artificial sin ser experto en tecnología."
+              slug="cinco-formas-ia"
+            />
+            <BlogCard
+              title="Cómo medir el impacto de la automatización"
+              excerpt="Métricas clave y estrategias para evaluar el retorno de inversión de tus proyectos de IA y automatización."
+              slug="medir-impacto-automatizacion"
             />
           </div>
         </div>
@@ -288,7 +320,7 @@ const Index = () => {
       </section>
 
       {/* Process Section */}
-      <section id="como-trabajamos" className="py-20 md:py-32 bg-background">
+      <section id="como-trabajamos" className="py-20 md:py-32 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -319,40 +351,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Blog / Insights Section */}
-      <section id="insights" className="py-20 md:py-32 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
-              Insights que impulsan el futuro
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Aprende cómo la IA y la automatización están transformando los negocios.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-fade-in-up">
-            <BlogCard
-              title="Por qué automatizar no es deshumanizar"
-              excerpt="Descubre cómo la automatización bien aplicada libera tiempo para que las personas se enfoquen en lo que realmente importa."
-              slug="automatizar-no-es-deshumanizar"
-            />
-            <BlogCard
-              title="5 formas en que la IA puede ayudar a tu negocio hoy"
-              excerpt="Ideas prácticas y casos reales de cómo implementar inteligencia artificial sin ser experto en tecnología."
-              slug="cinco-formas-ia"
-            />
-            <BlogCard
-              title="Cómo medir el impacto de la automatización"
-              excerpt="Métricas clave y estrategias para evaluar el retorno de inversión de tus proyectos de IA y automatización."
-              slug="medir-impacto-automatizacion"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* CTA Banner Section */}
-      <section className="py-16 md:py-24 gradient-hero">
+      <section className="py-16 md:py-24 gradient-hero bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-display text-primary-foreground mb-4">
             ¿Listo para automatizar con sentido?
@@ -511,7 +511,7 @@ const Index = () => {
           <div className="border-t border-primary-foreground/20 pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
               <p className="text-primary-foreground/80">
-                NEXABIS © 2025 – Todos los derechos reservados.
+                NEXABIS © 2025 — Todos los derechos reservados.
               </p>
               <div className="flex gap-4">
                 <button className="text-primary-foreground/70 hover:text-primary-foreground transition-smooth">Política de Privacidad</button>
@@ -519,7 +519,7 @@ const Index = () => {
               </div>
             </div>
             <p className="text-primary-foreground/60 text-xs mt-4 text-center">
-              Operamos desde Chile para toda Latinoamérica | Desarrollado por Cris - Cristóbal Abarca
+              Desarrollado por Aarön Cris Tech | Operamos desde Chile para toda Latinoamérica
             </p>
           </div>
         </div>
