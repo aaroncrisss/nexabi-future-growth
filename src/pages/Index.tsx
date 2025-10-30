@@ -1,4 +1,5 @@
-import { Bot, BarChart3, MessageCircle, Cog, Search, Brain, Rocket, Mail, Phone, Linkedin, ChevronDown, GraduationCap, Users, Target, TrendingUp, Zap, Heart, Lightbulb, BookOpen, Calendar } from 'lucide-react';
+import { Bot, BarChart3, MessageCircle, Cog, Search, Brain, Rocket, Mail, Phone, Linkedin, ChevronDown, GraduationCap, Users, Target, TrendingUp, Zap, Heart, Lightbulb, BookOpen, Calendar, Menu } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import SolutionCard from '@/components/SolutionCard';
@@ -10,20 +11,26 @@ import ImpactCard from '@/components/ImpactCard';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ValueCard from '@/components/ValueCard';
 import BlogCard from '@/components/BlogCard';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import heroImage from '@/assets/hero-ai.jpg';
 
 const Index = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
   };
 
   return (
     <div className="min-h-screen">
       {/* Navbar Sticky */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-display text-gradient">NEXABIS</h1>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          <h1 className="text-xl md:text-2xl font-display text-gradient">NEXABIS</h1>
+          
+          {/* Desktop Menu */}
           <div className="hidden md:flex gap-6 text-sm">
             <button onClick={() => scrollToSection('soluciones')} className="text-muted-foreground hover:text-foreground transition-smooth">Soluciones</button>
             <button onClick={() => scrollToSection('impacto')} className="text-muted-foreground hover:text-foreground transition-smooth">Impacto</button>
@@ -31,9 +38,61 @@ const Index = () => {
             <button onClick={() => scrollToSection('academy')} className="text-muted-foreground hover:text-foreground transition-smooth">Academy</button>
             <button onClick={() => scrollToSection('contacto')} className="text-muted-foreground hover:text-foreground transition-smooth">Contacto</button>
           </div>
-          <Button size="sm" onClick={() => scrollToSection('contacto')} className="gradient-hero text-primary-foreground">
-            Hablemos
-          </Button>
+          
+          <div className="flex items-center gap-2">
+            <Button size="sm" onClick={() => scrollToSection('contacto')} className="hidden md:flex gradient-hero text-primary-foreground">
+              Hablemos
+            </Button>
+            
+            {/* Mobile Menu */}
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button size="sm" variant="ghost" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] bg-background/98 backdrop-blur-lg">
+                <div className="flex flex-col gap-6 mt-8">
+                  <button 
+                    onClick={() => scrollToSection('soluciones')} 
+                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
+                  >
+                    Soluciones
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('impacto')} 
+                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
+                  >
+                    Impacto
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('insights')} 
+                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
+                  >
+                    Blog
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('academy')} 
+                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
+                  >
+                    Academy
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contacto')} 
+                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
+                  >
+                    Contacto
+                  </button>
+                  <Button 
+                    onClick={() => scrollToSection('contacto')} 
+                    className="gradient-hero text-primary-foreground mt-4 w-full"
+                  >
+                    Hablemos
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
 
@@ -54,7 +113,7 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-primary-foreground mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-primary-foreground mb-6 tracking-tight">
               NEXABIS
             </h1>
             <p className="text-2xl md:text-3xl text-primary-foreground/95 mb-4 font-medium">
@@ -92,7 +151,7 @@ const Index = () => {
               Descubre cómo podemos ayudarte
             </Button>
             <p className="text-primary-foreground/80 text-sm">
-              By Cris - Cristóbal Abarca
+              Cristóbal Abarca
             </p>
           </div>
         </div>
@@ -107,7 +166,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="sobre-nosotros" className="py-20 md:py-32 bg-background">
+      <section id="sobre-nosotros" className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-8 text-foreground">
@@ -126,7 +185,7 @@ const Index = () => {
       </section>
 
       {/* Solutions Section */}
-      <section id="soluciones" className="py-20 md:py-32 bg-muted/30">
+      <section id="soluciones" className="py-12 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -173,7 +232,7 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 md:py-32 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -207,7 +266,7 @@ const Index = () => {
       </section>
 
       {/* Impact / Success Stories Section */}
-      <section id="impacto" className="py-20 md:py-32 bg-background">
+      <section id="impacto" className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -242,7 +301,7 @@ const Index = () => {
       </section>
 
       {/* Blog / Insights Section */}
-      <section id="insights" className="py-20 md:py-32 bg-muted/30">
+      <section id="insights" className="py-12 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -274,7 +333,7 @@ const Index = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 md:py-32 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-display mb-4 text-foreground">
@@ -291,7 +350,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 md:py-32 bg-muted/30">
+      <section className="py-12 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -320,7 +379,7 @@ const Index = () => {
       </section>
 
       {/* Process Section */}
-      <section id="como-trabajamos" className="py-20 md:py-32 bg-muted/30">
+      <section id="como-trabajamos" className="py-12 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -352,7 +411,7 @@ const Index = () => {
       </section>
 
       {/* CTA Banner Section */}
-      <section className="py-16 md:py-24 gradient-hero bg-background">
+      <section className="py-12 md:py-20 gradient-hero bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-display text-primary-foreground mb-4">
             ¿Listo para automatizar con sentido?
@@ -372,7 +431,7 @@ const Index = () => {
       </section>
 
       {/* Academy Section */}
-      <section id="academy" className="py-20 md:py-32 bg-card border-y border-border">
+      <section id="academy" className="py-12 md:py-20 bg-card border-y border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="mb-6 flex justify-center">
@@ -403,7 +462,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="py-20 md:py-32 bg-background">
+      <section id="contacto" className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -462,7 +521,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="gradient-footer py-12">
+      <footer className="gradient-footer py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand Column */}
@@ -519,7 +578,7 @@ const Index = () => {
               </div>
             </div>
             <p className="text-primary-foreground/60 text-xs mt-4 text-center">
-              Desarrollado por Aarön Cris Tech | Operamos desde Chile para toda Latinoamérica
+              Desarrollado por Cristóbal Abarca | Operamos desde Chile para toda Latinoamérica
             </p>
           </div>
         </div>
