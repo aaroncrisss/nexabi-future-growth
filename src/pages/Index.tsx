@@ -1,101 +1,27 @@
-import { Bot, BarChart3, MessageCircle, Cog, Search, Brain, Rocket, Mail, Phone, Linkedin, ChevronDown, GraduationCap, Users, Target, TrendingUp, Zap, Heart, Lightbulb, BookOpen, Calendar, Menu } from 'lucide-react';
-import { useState } from 'react';
+import { Bot, BarChart3, MessageCircle, Cog, ChevronDown, Users, Target, TrendingUp, Heart, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import SolutionCard from '@/components/SolutionCard';
-import StepCard from '@/components/StepCard';
 import ContactForm from '@/components/ContactForm';
 import TestimonialCard from '@/components/TestimonialCard';
-import PartnerLogos from '@/components/PartnerLogos';
 import ImpactCard from '@/components/ImpactCard';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ValueCard from '@/components/ValueCard';
 import BlogCard from '@/components/BlogCard';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import heroImage from '@/assets/hero-ai.jpg';
+import { Zap } from 'lucide-react';
 
 const Index = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
-    setMobileMenuOpen(false);
   };
 
   return (
     <div className="min-h-screen">
-      {/* Navbar Sticky */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-display text-gradient">NEXABIS</h1>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-6 text-sm">
-            <button onClick={() => scrollToSection('soluciones')} className="text-muted-foreground hover:text-foreground transition-smooth">Soluciones</button>
-            <button onClick={() => scrollToSection('impacto')} className="text-muted-foreground hover:text-foreground transition-smooth">Impacto</button>
-            <button onClick={() => scrollToSection('insights')} className="text-muted-foreground hover:text-foreground transition-smooth">Blog</button>
-            <button onClick={() => scrollToSection('academy')} className="text-muted-foreground hover:text-foreground transition-smooth">Academy</button>
-            <button onClick={() => scrollToSection('contacto')} className="text-muted-foreground hover:text-foreground transition-smooth">Contacto</button>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Button size="sm" onClick={() => scrollToSection('contacto')} className="hidden md:flex gradient-hero text-primary-foreground">
-              Hablemos
-            </Button>
-            
-            {/* Mobile Menu */}
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button size="sm" variant="ghost" className="md:hidden">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] bg-background/98 backdrop-blur-lg">
-                <div className="flex flex-col gap-6 mt-8">
-                  <button 
-                    onClick={() => scrollToSection('soluciones')} 
-                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
-                  >
-                    Soluciones
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('impacto')} 
-                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
-                  >
-                    Impacto
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('insights')} 
-                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
-                  >
-                    Blog
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('academy')} 
-                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
-                  >
-                    Academy
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('contacto')} 
-                    className="text-left text-lg text-muted-foreground hover:text-foreground transition-smooth py-2"
-                  >
-                    Contacto
-                  </button>
-                  <Button 
-                    onClick={() => scrollToSection('contacto')} 
-                    className="gradient-hero text-primary-foreground mt-4 w-full"
-                  >
-                    Hablemos
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </div>
-      </nav>
-
+      <Navbar />
       <WhatsAppButton />
 
       {/* Hero Section */}
@@ -143,13 +69,14 @@ const Index = () => {
               </div>
             </div>
 
-            <Button
-              size="lg"
-              onClick={() => scrollToSection('soluciones')}
-              className="bg-background text-foreground hover:bg-background/90 shadow-glow font-display text-lg px-8 py-6 mb-6"
-            >
-              Descubre cómo podemos ayudarte
-            </Button>
+            <Link to="/soluciones">
+              <Button
+                size="lg"
+                className="bg-background text-foreground hover:bg-background/90 shadow-glow font-display text-lg px-8 py-6 mb-6"
+              >
+                Descubre cómo podemos ayudarte
+              </Button>
+            </Link>
             <p className="text-primary-foreground/80 text-sm">
               Cristóbal Abarca
             </p>
@@ -180,6 +107,11 @@ const Index = () => {
             <blockquote className="text-2xl md:text-3xl font-display text-gradient italic py-8">
               "El crecimiento real comienza cuando automatizas con sentido"
             </blockquote>
+            <Link to="/nosotros">
+              <Button variant="outline" className="mt-4">
+                Conoce nuestra historia
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -220,13 +152,14 @@ const Index = () => {
           </div>
 
           <div className="text-center">
-            <Button
-              size="lg"
-              onClick={() => scrollToSection('contacto')}
-              className="gradient-hero text-primary-foreground hover:opacity-90 shadow-glow font-display text-lg px-8"
-            >
-              Solicita tu diagnóstico gratuito
-            </Button>
+            <Link to="/soluciones">
+              <Button
+                size="lg"
+                className="gradient-hero text-primary-foreground hover:opacity-90 shadow-glow font-display text-lg px-8"
+              >
+                Ver todas las soluciones
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -266,7 +199,7 @@ const Index = () => {
       </section>
 
       {/* Impact / Success Stories Section */}
-      <section id="impacto" className="py-12 md:py-20 bg-background">
+      <section id="impacto" className="py-12 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -300,8 +233,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Blog / Insights Section */}
-      <section id="insights" className="py-12 md:py-20 bg-muted/30">
+      {/* Blog Preview Section */}
+      <section id="insights" className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
@@ -312,7 +245,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-fade-in-up">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto animate-fade-in-up mb-8">
             <BlogCard
               title="Por qué automatizar no es deshumanizar"
               excerpt="Descubre cómo la automatización bien aplicada libera tiempo para que las personas se enfoquen en lo que realmente importa."
@@ -329,22 +262,13 @@ const Index = () => {
               slug="medir-impacto-automatizacion"
             />
           </div>
-        </div>
-      </section>
 
-      {/* Partners Section */}
-      <section className="py-12 md:py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-display mb-4 text-foreground">
-              Tecnologías que integramos
-            </h2>
-            <p className="text-muted-foreground">
-              Trabajamos con las herramientas más confiables del mercado.
-            </p>
-          </div>
-          <div className="animate-fade-in-up">
-            <PartnerLogos />
+          <div className="text-center">
+            <Link to="/blog">
+              <Button variant="outline" size="lg">
+                Ver todos los artículos
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -378,38 +302,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section id="como-trabajamos" className="py-12 md:py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display mb-4 text-foreground">
-              Nuestro método
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto animate-fade-in-up">
-            <StepCard
-              icon={Search}
-              title="Análisis rápido"
-              description="Evaluamos tus procesos y detectamos oportunidades de mejora."
-              stepNumber={1}
-            />
-            <StepCard
-              icon={Brain}
-              title="Diseño inteligente"
-              description="Creamos una solución adaptada a tu negocio."
-              stepNumber={2}
-            />
-            <StepCard
-              icon={Rocket}
-              title="Implementación con propósito"
-              description="Integramos, medimos y te acompañamos en el crecimiento."
-              stepNumber={3}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* CTA Banner Section */}
       <section className="py-12 md:py-20 gradient-hero bg-background">
         <div className="container mx-auto px-4 text-center">
@@ -419,45 +311,15 @@ const Index = () => {
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Agenda tu reunión gratuita y descubre cómo NEXABIS puede transformar tu negocio.
           </p>
-          <Button
-            size="lg"
-            onClick={() => scrollToSection('contacto')}
-            className="bg-background text-foreground hover:bg-background/90 shadow-glow font-display text-lg px-8 py-6"
-          >
-            <Calendar className="w-5 h-5 mr-2" />
-            Agenda tu reunión gratuita
-          </Button>
-        </div>
-      </section>
-
-      {/* Academy Section */}
-      <section id="academy" className="py-12 md:py-20 bg-card border-y border-border">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="mb-6 flex justify-center">
-              <div className="p-4 rounded-2xl gradient-hero inline-block">
-                <GraduationCap className="w-12 h-12 text-primary-foreground" />
-              </div>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-display mb-6 text-foreground">
-              Próximamente: NEXABIS Academy
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Estamos construyendo la <strong>NEXABIS Academy</strong>, un espacio de aprendizaje para emprendedores y equipos que quieren dominar la IA aplicada sin ser programadores.
-            </p>
-            <p className="text-lg text-muted-foreground mb-6">
-              Cursos cortos, casos reales y acompañamiento humano.
-            </p>
-            <p className="text-sm text-muted-foreground/80 mb-8">
-              Llegará en Q3 2026
-            </p>
+          <Link to="/contacto">
             <Button
               size="lg"
-              className="bg-foreground text-background hover:bg-foreground/90 font-display text-lg px-8"
+              className="bg-background text-foreground hover:bg-background/90 shadow-glow font-display text-lg px-8 py-6"
             >
-              Unirme a la lista de espera
+              <Calendar className="w-5 h-5 mr-2" />
+              Agenda tu reunión gratuita
             </Button>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -473,116 +335,13 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="animate-fade-in-up mb-16">
+          <div className="animate-fade-in-up max-w-2xl mx-auto">
             <ContactForm />
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-display mb-6 text-foreground">
-                Contacto directo
-              </h3>
-              <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <a
-                  href="https://wa.me/56986343217"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth group"
-                >
-                  <div className="p-2 rounded-lg bg-muted group-hover:bg-primary/10 transition-smooth">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <span>+56 9 8634 3217</span>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/cristobalabarca/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth group"
-                >
-                  <div className="p-2 rounded-lg bg-muted group-hover:bg-primary/10 transition-smooth">
-                    <Linkedin className="w-5 h-5" />
-                  </div>
-                  <span>Cristóbal Abarca – Aarön Cris Tech</span>
-                </a>
-                <a
-                  href="mailto:contacto@nexabis.tech"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth group"
-                >
-                  <div className="p-2 rounded-lg bg-muted group-hover:bg-primary/10 transition-smooth">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <span>contacto@nexabis.tech</span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="gradient-footer py-8 md:py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {/* Brand Column */}
-            <div>
-              <h3 className="text-2xl font-display text-primary-foreground mb-3">NEXABIS</h3>
-              <p className="text-primary-foreground/80 text-sm mb-4">
-                El crecimiento real comienza cuando automatizas con sentido.
-              </p>
-              <p className="text-primary-foreground/70 text-xs">
-                +3 años en marketing automation e inteligencia de negocios
-              </p>
-            </div>
-
-            {/* Navigation Column */}
-            <div>
-              <h4 className="font-display text-primary-foreground mb-3">Navegación</h4>
-              <nav className="flex flex-col gap-2 text-sm">
-                <button onClick={() => scrollToSection('inicio')} className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth text-left">Inicio</button>
-                <button onClick={() => scrollToSection('soluciones')} className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth text-left">Soluciones</button>
-                <button onClick={() => scrollToSection('impacto')} className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth text-left">Impacto</button>
-                <button onClick={() => scrollToSection('insights')} className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth text-left">Insights</button>
-                <button onClick={() => scrollToSection('academy')} className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth text-left">Academy</button>
-                <button onClick={() => scrollToSection('contacto')} className="text-primary-foreground/80 hover:text-primary-foreground transition-smooth text-left">Contacto</button>
-              </nav>
-            </div>
-
-            {/* Newsletter Column */}
-            <div>
-              <h4 className="font-display text-primary-foreground mb-3">Newsletter</h4>
-              <p className="text-primary-foreground/80 text-sm mb-4">
-                Recibe tips de automatización e IA cada mes.
-              </p>
-              <div className="flex gap-2">
-                <Input 
-                  type="email" 
-                  placeholder="tu@email.com" 
-                  className="bg-background/20 border-primary-foreground/30 text-primary-foreground placeholder:text-primary-foreground/50"
-                />
-                <Button className="bg-background text-foreground hover:bg-background/90">
-                  Suscribir
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-primary-foreground/20 pt-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-              <p className="text-primary-foreground/80">
-                NEXABIS © 2025 — Todos los derechos reservados.
-              </p>
-              <div className="flex gap-4">
-                <button className="text-primary-foreground/70 hover:text-primary-foreground transition-smooth">Política de Privacidad</button>
-                <button className="text-primary-foreground/70 hover:text-primary-foreground transition-smooth">Términos de Servicio</button>
-              </div>
-            </div>
-            <p className="text-primary-foreground/60 text-xs mt-4 text-center">
-              Desarrollado por Cristóbal Abarca | Operamos desde Chile para toda Latinoamérica
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

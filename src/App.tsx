@@ -5,6 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Soluciones from "./pages/Soluciones";
+import Blog from "./pages/Blog";
+import Academy from "./pages/Academy";
+import Nosotros from "./pages/Nosotros";
+import Contacto from "./pages/Contacto";
 import AutomatizarNoEsDeshumanizar from "./pages/blog/AutomatizarNoEsDeshumanizar";
 import CincoFormasIA from "./pages/blog/CincoFormasIA";
 import MedirImpactoAutomatizacion from "./pages/blog/MedirImpactoAutomatizacion";
@@ -19,6 +24,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/soluciones" element={<Soluciones />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/academy" element={<Academy />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/contacto" element={<Contacto />} />
           <Route path="/blog/automatizar-no-es-deshumanizar" element={<AutomatizarNoEsDeshumanizar />} />
           <Route path="/blog/cinco-formas-ia" element={<CincoFormasIA />} />
           <Route path="/blog/medir-impacto-automatizacion" element={<MedirImpactoAutomatizacion />} />
